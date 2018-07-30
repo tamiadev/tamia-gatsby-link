@@ -1,0 +1,15 @@
+{
+	"presets": [
+		[
+			"@babel/env",
+			{
+				"targets": {
+					"node": 8
+				},
+				"modules": false,
+				"useBuiltIns": "usage"
+			}
+		],
+		"@babel/react"
+	]
+}

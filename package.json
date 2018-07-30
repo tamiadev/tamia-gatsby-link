@@ -1,0 +1,58 @@
+{
+  "name": "tamia-gatsby-link",
+  "version": "1.0.0",
+  "description": "",
+  "author": {
+    "name": "Artem Sapegin",
+    "url": "http://sapegin.me"
+  },
+  "homepage": "https://github.com/tamiadev/tamia-gatsby-link",
+  "repository": "tamiadev/tamia-gatsby-link",
+  "license": "MIT",
+  "engines": {
+    "node": ">=8.9"
+  },
+  "main": "lib/index.js",
+  "files": [
+    "lib"
+  ],
+  "scripts": {
+    "lint": "eslint . --cache --fix",
+    "pretest": "npm run lint",
+    "test": "true",
+    "posttest": "npm run format",
+    "format": "prettier --write '**/*.{js,md}'",
+    "compile": "babel -d lib/ src/",
+    "prepublishOnly": "npm run compile",
+    "precommit": "lint-staged"
+  },
+  "keywords": [],
+  "dependencies": {},
+  "peerDependencies": {
+    "gatsby": "*",
+    "tamia": "*"
+  },
+  "devDependencies": {
+    "@babel/cli": "^7.0.0-beta.55",
+    "@babel/core": "^7.0.0-beta.55",
+    "@babel/preset-env": "^7.0.0-beta.55",
+    "@babel/preset-react": "^7.0.0-beta.55",
+    "eslint": "^5.2.0",
+    "eslint-config-tamia": "^6.0.1",
+    "gatsby": "^2.0.0-beta.55",
+    "husky": "^0.14.3",
+    "lint-staged": "^7.2.0",
+    "prettier": "^1.14.0",
+    "tamia": "^4.0.0-alpha.11"
+  },
+  "lint-staged": {
+    "*.{js,md}": [
+      "prettier --write",
+      "git add"
+    ],
+    "*.js": [
+      "eslint --fix",
+      "git add"
+    ]
+  }
+}
