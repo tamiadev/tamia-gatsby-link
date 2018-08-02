@@ -3,7 +3,7 @@ import { Link as LinkBase, QuotedLink as QuotedLinkBase } from 'tamia';
 import { Link as GatbsyLinkBase } from 'gatsby';
 
 const isExternalLink = href => {
-	const protocol = href.split(':').shift();
+	const protocol = href && href.split(':').shift();
 	return protocol === 'https' || protocol === 'http' || protocol === 'mailto';
 };
 
