@@ -12,6 +12,12 @@
   "engines": {
     "node": ">=8.9"
   },
+  "browserslist": [
+    ">1%",
+    "last 1 version",
+    "Firefox ESR",
+    "not dead"
+  ],
   "main": "lib/index.js",
   "files": [
     "lib"
@@ -23,10 +29,13 @@
     "posttest": "npm run format",
     "format": "prettier --write '**/*.{js,md}'",
     "compile": "babel -d lib/ src/",
-    "prepublishOnly": "npm run compile",
+    "copy-flow": "flow-copy-source src/ lib/",
+    "prepublishOnly": "npm run compile && npm run copy-flow",
     "precommit": "lint-staged"
   },
-  "keywords": [],
+  "keywords": [
+    "tamia"
+  ],
   "dependencies": {},
   "peerDependencies": {
     "gatsby": "*",
@@ -36,9 +45,12 @@
     "@babel/cli": "^7.0.0-beta.55",
     "@babel/core": "^7.0.0-beta.55",
     "@babel/preset-env": "^7.0.0-beta.55",
+    "@babel/preset-flow": "^7.0.0-beta.55",
     "@babel/preset-react": "^7.0.0-beta.55",
+    "babel-eslint": "^8.2.6",
     "eslint": "^5.2.0",
     "eslint-config-tamia": "^6.0.1",
+    "flow-copy-source": "^2.0.2",
     "gatsby": "^2.0.0-beta.55",
     "husky": "^0.14.3",
     "lint-staged": "^7.2.0",
