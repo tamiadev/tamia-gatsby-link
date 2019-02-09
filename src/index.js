@@ -15,16 +15,20 @@ const isExternalLink = (href: string): boolean => {
 export const GatsbyLink = LinkBase.withComponent(GatbsyLinkBase);
 export const QuotedGatsbyLink = QuotedLinkBase.withComponent(GatbsyLinkBase);
 
-export const Link = ({ href, ...props }: Props) =>
-	isExternalLink(href) ? (
-		<LinkBase href={href} {...props} />
-	) : (
-		<GatsbyLink to={href} {...props} />
-	);
+export const Link = React.forwardRef(
+	({ href, ...props }: Props, ref) =>
+		isExternalLink(href) ? (
+			<LinkBase href={href} ref={ref} {...props} />
+		) : (
+			<GatsbyLink to={href} ref={ref} {...props} />
+		)
+);
 
-export const QuotedLink = ({ href, ...props }: Props) =>
-	isExternalLink(href) ? (
-		<QuotedLinkBase href={href} {...props} />
-	) : (
-		<QuotedGatsbyLink to={href} {...props} />
-	);
+export const QuotedLink = React.forwardRef(
+	({ href, ...props }: Props, ref) =>
+		isExternalLink(href) ? (
+			<QuotedLinkBase href={href} ref={ref} {...props} />
+		) : (
+			<QuotedGatsbyLink to={href} ref={ref} {...props} />
+		)
+);
