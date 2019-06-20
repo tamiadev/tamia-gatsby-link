@@ -19,6 +19,7 @@
     "not dead"
   ],
   "main": "lib/index.js",
+  "types": "types/index.d.ts",
   "files": [
     "lib",
     "types"
