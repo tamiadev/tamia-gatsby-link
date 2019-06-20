@@ -33,7 +33,7 @@
     "compile": "npm run compile:babel && npm run compile:types",
     "compile:babel": "babel -d lib/ src/",
     "compile:types": "tsc --emitDeclarationOnly",
-    "prepublishOnly": "npm run compile && npm run copy-flow",
+    "prepublishOnly": "npm run compile",
     "precommit": "lint-staged"
   },
   "keywords": [
@@ -57,7 +57,6 @@
     "babel-eslint": "^10.0.2",
     "eslint": "^5.16.0",
     "eslint-config-tamia": "^6.2.1",
-    "flow-copy-source": "^2.0.2",
     "gatsby": "^2.9.11",
     "husky": "^2.4.1",
     "lint-staged": "^8.2.1",
