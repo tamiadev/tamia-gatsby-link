@@ -20,16 +20,19 @@
   ],
   "main": "lib/index.js",
   "files": [
-    "lib"
+    "lib",
+    "types"
   ],
   "scripts": {
     "lint": "eslint . --cache --fix",
     "pretest": "npm run lint",
     "test": "true",
     "posttest": "npm run format",
-    "format": "prettier --write '**/*.{js,md}'",
-    "compile": "babel -d lib/ src/",
-    "copy-flow": "flow-copy-source src/ lib/",
+    "format": "prettier --write '**/*.{tsx,md}'",
+    "typecheck": "tsc --noEmit",
+    "compile": "npm run compile:babel && npm run compile:types",
+    "compile:babel": "babel -d lib/ src/",
+    "compile:types": "tsc --emitDeclarationOnly",
     "prepublishOnly": "npm run compile && npm run copy-flow",
     "precommit": "lint-staged"
   },
@@ -42,27 +45,32 @@
     "tamia": "*"
   },
   "devDependencies": {
-    "@babel/cli": "^7.0.0-beta.55",
-    "@babel/core": "^7.0.0-beta.55",
-    "@babel/preset-env": "^7.0.0-beta.55",
-    "@babel/preset-flow": "^7.0.0-beta.55",
-    "@babel/preset-react": "^7.0.0-beta.55",
-    "babel-eslint": "^8.2.6",
-    "eslint": "^5.2.0",
-    "eslint-config-tamia": "^6.0.1",
+    "@babel/cli": "^7.4.4",
+    "@babel/core": "^7.4.5",
+    "@babel/preset-env": "^7.4.5",
+    "@babel/preset-react": "^7.0.0",
+    "@babel/preset-typescript": "^7.3.3",
+    "@emotion/core": "^10.0.10",
+    "@emotion/styled": "^10.0.12",
+    "@typescript-eslint/eslint-plugin": "^1.10.2",
+    "@typescript-eslint/parser": "^1.10.2",
+    "babel-eslint": "^10.0.2",
+    "eslint": "^5.16.0",
+    "eslint-config-tamia": "^6.2.1",
     "flow-copy-source": "^2.0.2",
-    "gatsby": "^2.0.0-beta.55",
-    "husky": "^0.14.3",
-    "lint-staged": "^7.2.0",
-    "prettier": "^1.14.0",
-    "tamia": "^4.0.0-alpha.11"
+    "gatsby": "^2.9.11",
+    "husky": "^2.4.1",
+    "lint-staged": "^8.2.1",
+    "prettier": "^1.18.2",
+    "tamia": "^5.0.0-alpha.2",
+    "typescript": "^3.5.2"
   },
   "lint-staged": {
-    "*.{js,md}": [
+    "*.{tsx,md}": [
       "prettier --write",
       "git add"
     ],
-    "*.js": [
+    "*.tsx": [
       "eslint --fix",
       "git add"
     ]
