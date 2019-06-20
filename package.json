@@ -24,7 +24,7 @@
     "types"
   ],
   "scripts": {
-    "lint": "eslint . --cache --fix",
+    "lint": "eslint . --ext .tsx --cache --fix",
     "pretest": "npm run lint",
     "test": "true",
     "posttest": "npm run format",
