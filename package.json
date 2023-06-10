@@ -58,7 +58,7 @@
     "babel-eslint": "^10.0.2",
     "eslint": "^5.16.0",
     "eslint-config-tamia": "^6.2.1",
-    "gatsby": "^2.9.11",
+    "gatsby": "^4.25.7",
     "husky": "^2.4.1",
     "lint-staged": "^8.2.1",
     "prettier": "^1.18.2",
